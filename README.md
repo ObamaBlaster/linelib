@@ -12,7 +12,7 @@ linelib = {git = "https://github.com/ObamaBlaster/linelib"}
 
 ...
 
-
+# from https://github.com/Rust-SDL2/rust-sdl2
 [dependencies.sdl2]
 version = "0.35"
 default-features = false
@@ -33,5 +33,29 @@ Command line
 cargo install cargo-vcpkg
 cargo vcpkg build
 cargo build
+
+```
+
+main.rs
+```
+// For a SDL2 window
+use sdl2::video::GLProfile;
+
+fn main() {
+    let sdl_context = sdl2::init().unwrap();
+    let video_subsystem = sdl_context.video().unwrap();
+    let gl_attr = video_subsystem.gl_attr();
+    gl_attr.set_context_profile(GLProfile::Core);
+    gl_attr.set_context_version(4, 0);
+    let window = video_subsystem
+        .window("Window", 1920, 1080)
+        .opengl()
+        .build()
+        .unwrap();
+
+    'running: loop {
+        window.gl_swap_window();
+    }
+}
 
 ```
