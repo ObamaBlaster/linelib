@@ -1,5 +1,5 @@
 # linelib
-Rust sdl2 and imgui wrapper (with other junk too)
+Rust sdl2 and imgui wrapper (with other junk too (a lot))
 
 # Getting Started
 
